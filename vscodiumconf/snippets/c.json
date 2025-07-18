@@ -212,8 +212,8 @@
             " * @brief ${1:Brief description of the function.}",
             " * @param ${2:paramName} ${3:Description of paramName.}",
             " * @return ${4:Description of return value.}",
-            " * @details ${5:Detailed description.}"
-            " */",
+            " * @details ${5:Detailed description.}" ,
+            " */" ,
             "$0"
         ],
         "description": "Doxygen comment for function"

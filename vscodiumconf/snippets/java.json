@@ -219,23 +219,3 @@
         "description": "Import statement"
     }
 }
-{
-    "Main Method": {
-        "prefix": "main",
-        "body": [
-            "public static void main(String[] args) {",
-            "\t$0",
-            "}"
-        ],
-        "description": "Main method"
-    },
-    "Lambda Expression": {
-        "prefix": "lambda",
-        "body": [
-            "${1:Type} ${2:variable} = (${3:args}) -> {",
-            "\t$0",
-            "};"
-        ],
-        "description": "Lambda expression"
-    }
-}

@@ -249,23 +249,3 @@
         "description": "Import statement"
     }
 }
-{
-    "Lambda Expression": {
-        "prefix": "lam",
-        "body": [
-            "${1:val lambdaName} = { ${2:arg1: Type1, arg2: Type2} ->",
-            "\t$0",
-            "}"
-        ],
-        "description": "Lambda expression"
-    },
-    "Extension Function": {
-        "prefix": "ext",
-        "body": [
-            "fun ${1:Type}.${2:functionName}(${3:args}): ${4:ReturnType} {",
-            "\t$0",
-            "}"
-        ],
-        "description": "Extension function"
-    }
-} 
