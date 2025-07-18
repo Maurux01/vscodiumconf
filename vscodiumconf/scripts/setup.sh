@@ -14,7 +14,7 @@ fi
 
 # Directorios de configuración de VS Codium
 CONFIG_DIR="$HOME/.config/VSCodium/User"
-EXTENSIONS_DIR="$HOME/.vscode-oss/extensions"
+EXTENSIONS_DIR="$HOME/.config/VSCodium/extensions"
 
 # Crear directorios si no existen
 mkdir -p "$CONFIG_DIR/snippets"
