@@ -1,0 +1,641 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if [ ${1:condition} ]; then",
+            "\t$0",
+            "fi"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if [ ${1:condition} ]; then",
+            "\t${2: # code if true}",
+            "else",
+            "\t$0",
+            "fi"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "elif [ ${1:condition} ]; then",
+            "\t$0"
+        ],
+        "description": "Else If statement"
+    },
+    "Case (Switch) Statement": {
+        "prefix": "sw",
+        "body": [
+            "case ${1:variable} in",
+            "\t${2:pattern1})",
+            "\t\t${3: # code for pattern1}",
+            "\t\t;;",
+            "\t${4:pattern2})",
+            "\t\t${5: # code for pattern2}",
+            "\t\t;;",
+            "\t*)",
+            "\t\t$0",
+            "\t\t;;",
+            "esac"
+        ],
+        "description": "Case statement (Bash switch)"
+    },
+    "For Loop (Range)": {
+        "prefix": "for",
+        "body": [
+            "for ${1:i} in {${2:1}..${3:10}}; do",
+            "\t$0",
+            "done"
+        ],
+        "description": "For loop (numeric range)"
+    },
+    "For Loop (List)": {
+        "prefix": "fore",
+        "body": [
+            "for ${1:item} in ${2:item1} ${3:item2} ${4:item3}; do",
+            "\t$0",
+            "done"
+        ],
+        "description": "For loop (list iteration)"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while [ ${1:condition} ]; do",
+            "\t$0",
+            "done"
+        ],
+        "description": "While loop"
+    },
+    "Function Declaration": {
+        "prefix": "fn",
+        "body": [
+            "${1:function_name}() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function declaration"
+    },
+    "Echo (Print)": {
+        "prefix": "p",
+        "body": [
+            "echo \"${1:message}\""
+        ],
+        "description": "Echo (print) statement"
+    },
+    "Variable Declaration": {
+        "prefix": "v",
+        "body": [
+            "${1:variable_name}=\"${2:value}\""
+        ],
+        "description": "Variable declaration"
+    },
+    "Read User Input": {
+        "prefix": "read",
+        "body": [
+            "read -p \"${1:Prompt: }\" ${2:variableName}"
+        ],
+        "description": "Read user input"
+    },
+    "Comment (Single Line)": {
+        "prefix": "c",
+        "body": [
+            "# ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Shebang": {
+        "prefix": "sh",
+        "body": [
+            "#!/bin/bash",
+            "$0"
+        ],
+        "description": "Shebang for bash scripts"
+    }
+}
+{
+    "Exit Script": {
+        "prefix": "exit",
+        "body": [
+            "exit ${1:0}"
+        ],
+        "description": "Exit script with status code"
+    },
+    "Sleep Command": {
+        "prefix": "sleep",
+        "body": [
+            "sleep ${1:seconds}"
+        ],
+        "description": "Sleep for a specified number of seconds"
+    }
+}
+{
+    "Redirect Output": {
+        "prefix": "redir",
+        "body": [
+            "${1:command} > ${2:output_file} 2>&1"
+        ],
+        "description": "Redirect command output to a file"
+    },
+    "Pipe Command": {
+        "prefix": "pipe",
+        "body": [
+            "${1:command1} | ${2:command2}"
+        ],
+        "description": "Pipe output from one command to another"
+    }
+}
+{
+    "Check Command Exit Status": {
+        "prefix": "status",
+        "body": [
+            "if [ $? -eq 0 ]; then",
+            "\t$0",
+            "else",
+            "\techo \"Command failed\" >&2",
+            "fi"
+        ],
+        "description": "Check the exit status of the last command"
+    },
+    "Set Variable from Command Output": {
+        "prefix": "setvar",
+        "body": [
+            "${1:variable}=$(command ${2:args})"
+        ],
+        "description": "Set a variable to the output of a command"
+    }
+}
+{
+    "Check File Existence": {
+        "prefix": "filecheck",
+        "body": [
+            "if [ -e \"${1:file_path}\" ]; then",
+            "\t$0",
+            "else",
+            "\techo \"File does not exist\" >&2",
+            "fi"
+        ],
+        "description": "Check if a file exists"
+    },
+    "Check Directory Existence": {
+        "prefix": "dircheck",
+        "body": [
+            "if [ -d \"${1:directory_path}\" ]; then",
+            "\t$0",
+            "else",
+            "\techo \"Directory does not exist\" >&2",
+            "fi"
+        ],
+        "description": "Check if a directory exists"
+    }
+}
+{
+    "Create Directory": {
+        "prefix": "mkdir",
+        "body": [
+            "mkdir -p \"${1:directory_name}\""
+        ],
+        "description": "Create a directory"
+    },
+    "Remove File": {
+        "prefix": "rmfile",
+        "body": [
+            "rm -f \"${1:file_name}\""
+        ],
+        "description": "Remove a file"
+    },
+    "Remove Directory": {
+        "prefix": "rmdir",
+        "body": [
+            "rm -rf \"${1:directory_name}\""
+        ],
+        "description": "Remove a directory and its contents"
+    }
+}
+{
+    "Download File": {
+        "prefix": "download",
+        "body": [
+            "curl -O \"${1:url}\""
+        ],
+        "description": "Download a file from a URL"
+    },
+    "Copy File": {
+        "prefix": "cpfile",
+        "body": [
+            "cp \"${1:source_file}\" \"${2:destination_file}\""
+        ],
+        "description": "Copy a file"
+    },
+    "Move File": {
+        "prefix": "mvfile",
+        "body": [
+            "mv \"${1:source_file}\" \"${2:destination_file}\""
+        ],
+        "description": "Move or rename a file"
+    }
+}
+{
+    "Set File Permissions": {
+        "prefix": "chmod",
+        "body": [
+            "chmod ${1:permissions} \"${2:file_name}\""
+        ],
+        "description": "Set file permissions"
+    },
+    "Change Ownership": {
+        "prefix": "chown",
+        "body": [
+            "chown ${1:user}:${2:group} \"${3:file_name}\""
+        ],
+        "description": "Change file ownership"
+    }
+}
+{
+    "Environment Variable Declaration": {
+        "prefix": "envvar",
+        "body": [
+            "export ${1:VARIABLE_NAME}=\"${2:value}\""
+        ],
+        "description": "Declare an environment variable"
+    },
+    "Source File": {
+        "prefix": "source",
+        "body": [
+            "source \"${1:file_name}\""
+        ],
+        "description": "Source a file in the current shell"
+    }
+}
+{
+    "Check Command Help": {
+        "prefix": "help",
+        "body": [
+            "${1:command} --help"
+        ],
+        "description": "Display help for a command"
+    },
+    "List Files in Directory": {
+        "prefix": "ls",
+        "body": [
+            "ls -l \"${1:directory_path}\""
+        ],
+        "description": "List files in a directory"
+    },
+    "Find Files": {
+        "prefix": "find",
+        "body": [
+            "find \"${1:directory}\" -name \"${2:pattern}\""
+        ],
+        "description": "Find files matching a pattern"
+    }
+}
+{
+    "Check Disk Usage": {
+        "prefix": "du",
+        "body": [
+            "du -sh \"${1:directory}\""
+        ],
+        "description": "Check disk usage of a directory"
+    },
+    "Check Memory Usage": {
+        "prefix": "mem",
+        "body": [
+            "free -h"
+        ],
+        "description": "Check memory usage"
+    },
+    "Check System Uptime": {
+        "prefix": "uptime",
+        "body": [
+            "uptime"
+        ],
+        "description": "Check system uptime"
+    }
+}
+{
+    "Check Running Processes": {
+        "prefix": "ps",
+        "body": [
+            "ps aux | grep \"${1:process_name}\""
+        ],
+        "description": "Check running processes"
+    },
+    "Kill Process": {
+        "prefix": "kill",
+        "body": [
+            "kill -9 ${1:process_id}"
+        ],
+        "description": "Kill a process by ID"
+    },
+    "Start Background Process": {
+        "prefix": "bg",
+        "body": [
+            "${1:command} &"
+        ],
+        "description": "Start a command in the background"
+    }
+}
+{
+    "Check Network Configuration": {
+        "prefix": "ifconfig",
+        "body": [
+            "ifconfig"
+        ],
+        "description": "Check network configuration"
+    },
+    "Ping Host": {
+        "prefix": "ping",
+        "body": [
+            "ping -c 4 \"${1:host}\""
+        ],
+        "description": "Ping a host"
+    },
+    "Download File with Wget": {
+        "prefix": "wget",
+        "body": [
+            "wget \"${1:url}\""
+        ],
+        "description": "Download a file using wget"
+    }
+}
+{
+    "Check System Information": {
+        "prefix": "sysinfo",
+        "body": [
+            "uname -a"
+        ],
+        "description": "Check system information"
+    },
+    "Display Current Date and Time": {
+        "prefix": "date",
+        "body": [
+            "date"
+        ],
+        "description": "Display the current date and time"
+    },
+    "Display System Load Average": {
+        "prefix": "loadavg",
+        "body": [
+            "uptime | awk -F'load average:' '{ print $2 }'"
+        ],
+        "description": "Display system load average"
+    }
+}
+{
+    "Check User Information": {
+        "prefix": "whoami",
+        "body": [
+            "whoami"
+        ],
+        "description": "Display the current user"
+    },
+    "List Logged-in Users": {
+        "prefix": "users",
+        "body": [
+            "who"
+        ],
+        "description": "List currently logged-in users"
+    },
+    "Display User's Home Directory": {
+        "prefix": "home",
+        "body": [
+            "echo \"$HOME\""
+        ],
+        "description": "Display the current user's home directory"
+    }
+}
+{
+    "Check System Load": {
+        "prefix": "load",
+        "body": [
+            "uptime | awk '{print $10, $11, $12}'"
+        ],
+        "description": "Check system load averages"
+    },
+    "Display System Architecture": {
+        "prefix": "arch",
+        "body": [
+            "uname -m"
+        ],
+        "description": "Display system architecture (e.g., x86_64)"
+    },
+    "Check Available Disk Space": {
+        "prefix": "df",
+        "body": [
+            "df -h"
+        ],
+        "description": "Check available disk space on all mounted filesystems"
+    }
+}
+{
+    "Check Running Services": {
+        "prefix": "services",
+        "body": [
+            "systemctl list-units --type=service"
+        ],
+        "description": "List all running services"
+    },
+    "Start Service": {
+        "prefix": "startservice",
+        "body": [
+            "sudo systemctl start ${1:service_name}"
+        ],
+        "description": "Start a service"
+    },
+    "Stop Service": {
+        "prefix": "stopservice",
+        "body": [
+            "sudo systemctl stop ${1:service_name}"
+        ],
+        "description": "Stop a service"
+    }
+}
+{
+    "Restart Service": {
+        "prefix": "restartservice",
+        "body": [
+            "sudo systemctl restart ${1:service_name}"
+        ],
+        "description": "Restart a service"
+    },
+    "Enable Service on Boot": {
+        "prefix": "enableservice",
+        "body": [
+            "sudo systemctl enable ${1:service_name}"
+        ],
+        "description": "Enable a service to start on boot"
+    },
+    "Disable Service on Boot": {
+        "prefix": "disableservice",
+        "body": [
+            "sudo systemctl disable ${1:service_name}"
+        ],
+        "description": "Disable a service from starting on boot"
+    }
+}
+{
+    "Check Service Status": {
+        "prefix": "statusservice",
+        "body": [
+            "systemctl status ${1:service_name}"
+        ],
+        "description": "Check the status of a service"
+    },
+    "View Service Logs": {
+        "prefix": "logs",
+        "body": [
+            "journalctl -u ${1:service_name} -f"
+        ],
+        "description": "View logs for a specific service"
+    },
+    "List All Services": {
+        "prefix": "listservices",
+        "body": [
+            "systemctl list-units --type=service --all"
+        ],
+        "description": "List all services, including inactive ones"
+    }
+}
+{
+    "Check System Boot Time": {
+        "prefix": "boottime",
+        "body": [
+            "who -b"
+        ],
+        "description": "Check the last system boot time"
+    },
+    "Display System Load Average": {
+        "prefix": "loadavg",
+        "body": [
+            "cat /proc/loadavg"
+        ],
+        "description": "Display the system load average"
+    },
+    "Check System Uptime": {
+        "prefix": "uptime",
+        "body": [
+            "uptime"
+        ],
+        "description": "Check how long the system has been running"
+    }
+}
+{
+    "Check System Memory Usage": {
+        "prefix": "memusage",
+        "body": [
+            "free -h"
+        ],
+        "description": "Check system memory usage"
+    },
+    "Display CPU Information": {
+        "prefix": "cpuinfo",
+        "body": [
+            "lscpu"
+        ],
+        "description": "Display detailed CPU information"
+    },
+    "Check System Temperature": {
+        "prefix": "systemp",
+        "body": [
+            "sensors"
+        ],
+        "description": "Check system temperature (requires lm-sensors)"
+    }
+}
+{
+    "Check Network Interfaces": {
+        "prefix": "netif",
+        "body": [
+            "ip addr show"
+        ],
+        "description": "Check network interfaces and their IP addresses"
+    },
+    "Display Routing Table": {
+        "prefix": "route",
+        "body": [
+            "ip route show"
+        ],
+        "description": "Display the routing table"
+    },
+    "Check DNS Configuration": {
+        "prefix": "dns",
+        "body": [
+            "cat /etc/resolv.conf"
+        ],
+        "description": "Check DNS configuration"
+    }
+}
+{
+    "Check Firewall Status": {
+        "prefix": "firewall",
+        "body": [
+            "sudo ufw status"
+        ],
+        "description": "Check the status of the firewall (UFW)"
+    },
+    "Open Port in Firewall": {
+        "prefix": "openport",
+        "body": [
+            "sudo ufw allow ${1:port_number}"
+        ],
+        "description": "Open a port in the firewall"
+    },
+    "Close Port in Firewall": {
+        "prefix": "closeport",
+        "body": [
+            "sudo ufw deny ${1:port_number}"
+        ],
+        "description": "Close a port in the firewall"
+    }
+}
+{
+    "Check Active Connections": {
+        "prefix": "connections",
+        "body": [
+            "netstat -tuln"
+        ],
+        "description": "Check active network connections"
+    },
+    "Display Listening Ports": {
+        "prefix": "listening",
+        "body": [
+            "ss -tuln"
+        ],
+        "description": "Display ports that are currently listening"
+    },
+    "Check Network Statistics": {
+        "prefix": "netstats",
+        "body": [
+            "ifstat"
+        ],
+        "description": "Check network statistics (requires ifstat)"
+    }
+}
+{
+    "Check Disk I/O Statistics": {
+        "prefix": "diskio",
+        "body": [
+            "iostat -x 1"
+        ],
+        "description": "Check disk I/O statistics (requires sysstat)"
+    },
+    "Display Mounted Filesystems": {
+        "prefix": "mounts",
+        "body": [
+            "mount | column -t"
+        ],
+        "description": "Display mounted filesystems in a readable format"
+    },
+    "Check Swap Usage": {
+        "prefix": "swap",
+        "body": [
+            "swapon --show"
+        ],
+        "description": "Check swap usage"
+    }
+}

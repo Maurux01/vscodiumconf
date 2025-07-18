@@ -1,0 +1,124 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2:-- code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (${1:item} in ${2:vector_or_list}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Function Definition": {
+        "prefix": "fn",
+        "body": [
+            "${1:function_name} <- function(${2:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function definition"
+    },
+    "Try-Catch (tryCatch)": {
+        "prefix": "tc",
+        "body": [
+            "tryCatch({",
+            "\t${1:-- code to try}",
+            "}, error = function(e) {",
+            "\t${2:-- code to handle error}",
+            "\tprint(e)",
+            "}, finally = {",
+            "\t$0",
+            "})"
+        ],
+        "description": "Try-Catch block using tryCatch"
+    },
+    "Print Statement": {
+        "prefix": "p",
+        "body": [
+            "print(${1:message})"
+        ],
+        "description": "Print statement"
+    },
+    "Cat Statement": {
+        "prefix": "cat",
+        "body": [
+            "cat(${1:message}, '\\n')"
+        ],
+        "description": "Concatenate and print (cat)"
+    },
+    "Variable Assignment": {
+        "prefix": "v",
+        "body": [
+            "${1:variable_name} <- ${2:value}"
+        ],
+        "description": "Variable assignment"
+    },
+    "Constant Assignment": {
+        "prefix": "cst",
+        "body": [
+            "const ${1:CONSTANT_NAME} = ${2:value}"
+        ],
+        "description": "Constant assignment (conceptual, R doesn't have true constants)"
+    },
+    "Comment (Single Line)": {
+        "prefix": "c",
+        "body": [
+            "# ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Load Library": {
+        "prefix": "lib",
+        "body": [
+            "library(${1:packageName})"
+        ],
+        "description": "Load a library"
+    },
+    "Install Package": {
+        "prefix": "instp",
+        "body": [
+            "install.packages('${1:packageName}')"
+        ],
+        "description": "Install a package"
+    },
+    "Data Frame Creation": {
+        "prefix": "df",
+        "body": [
+            "${1:df_name} <- data.frame(",
+            "\t${2:col1} = c(${3:val1}, ${4:val2}),",
+            "\t${5:col2} = c(${6:val3}, ${7:val4})",
+            ")"
+        ],
+        "description": "Data frame creation"
+    }
+}
+// This file contains R code snippets for Visual Studio Code.
+// Each snippet is defined with a prefix, body, and description.

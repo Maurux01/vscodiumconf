@@ -1,0 +1,294 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2: // code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "else if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Else If statement"
+    },
+    "Switch Statement": {
+        "prefix": "sw",
+        "body": [
+            "switch (${1:expression}) {",
+            "\tcase ${2:value1}:",
+            "\t\t$3",
+            "\t\tbreak;",
+            "\tcase ${4:value2}:",
+            "\t\t$5",
+            "\t\tbreak;",
+            "\tdefault:",
+            "\t\t$0",
+            "}"
+        ],
+        "description": "Switch statement"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (int ${1:i} = 0; ${1:i} < ${2:length}; ${1:i}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop"
+    },
+    "For Each Loop": {
+        "prefix": "fore",
+        "body": [
+            "for (var ${1:item} in ${2:iterable}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For Each loop"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Do While Loop": {
+        "prefix": "dw",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while (${1:condition});"
+        ],
+        "description": "Do-While loop"
+    },
+    "Function Declaration": {
+        "prefix": "fn",
+        "body": [
+            "${1:ReturnType} ${2:functionName}(${3:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function declaration"
+    },
+    "Arrow Function": {
+        "prefix": "fa",
+        "body": [
+            "${1:ReturnType} ${2:functionName}(${3:args}) => ${4:expression};"
+        ],
+        "description": "Arrow function (short-hand)"
+    },
+    "Class Definition": {
+        "prefix": "cl",
+        "body": [
+            "class ${1:ClassName} {",
+            "\t${1:ClassName}(${2:this.property}) {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Class definition"
+    },
+    "Class Definition (with properties)": {
+        "prefix": "clp",
+        "body": [
+            "class ${1:ClassName} {",
+            "\t${3:String} ${2:propertyName};",
+            "\t${1:ClassName}(this.${2:propertyName});",
+            "\t$0",
+            "}"
+        ],
+        "description": "Class definition with properties and constructor"
+    },
+    "Constructor": {
+        "prefix": "co",
+        "body": [
+            "${1:ClassName}(${2:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Constructor"
+    },
+    "Try-Catch Block": {
+        "prefix": "tc",
+        "body": [
+            "try {",
+            "\t${1: // code to try}",
+            "} on ${2:ExceptionType} catch (e) {",
+            "\t${3: // code to handle specific exception}",
+            "\tprint(e);",
+            "} catch (e) {",
+            "\t${4: // code to handle other exceptions}",
+            "\tprint(e);",
+            "} finally {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Try-Catch block"
+    },
+    "Print (Debug Print)": {
+        "prefix": "p",
+        "body": [
+            "print('${1:message}');"
+        ],
+        "description": "Print statement"
+    },
+    "Log (Logger)": {
+        "prefix": "log",
+        "body": [
+            "import 'package:logger/logger.dart';",
+            "final ${1:logger} = Logger();",
+            "${1:logger}.d('${2:message}');"
+        ],
+        "description": "Logger statement (requires logger package)"
+    },
+    "Async Function": {
+        "prefix": "afn",
+        "body": [
+            "Future<${1:ReturnType}> ${2:functionName}(${3:args}) async {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Async function"
+    },
+    "Await Keyword": {
+        "prefix": "aw",
+        "body": [
+            "await ${1:futureExpression};"
+        ],
+        "description": "Await keyword"
+    },
+    "Future (then/catchError)": {
+        "prefix": "ftc",
+        "body": [
+            "${1:futureExpression}.then((value) {",
+            "\t$0",
+            "}).catchError((error) {",
+            "\tprint('Error: $error');",
+            "});"
+        ],
+        "description": "Future with then and catchError"
+    },
+    "Variable Declaration (var)": {
+        "prefix": "v",
+        "body": [
+            "var ${1:variableName} = ${2:value};"
+        ],
+        "description": "Variable declaration with var"
+    },
+    "Variable Declaration (explicit type)": {
+        "prefix": "vt",
+        "body": [
+            "${1:DataType} ${2:variableName} = ${3:value};"
+        ],
+        "description": "Variable declaration with explicit type"
+    },
+    "Constant (const)": {
+        "prefix": "cst",
+        "body": [
+            "const ${1:CONSTANT_NAME} = ${2:value};"
+        ],
+        "description": "Constant declaration with const"
+    },
+    "Final Variable": {
+        "prefix": "fvl",
+        "body": [
+            "final ${1:variableName} = ${2:value};"
+        ],
+        "description": "Final variable declaration"
+    },
+    "Enum Declaration": {
+        "prefix": "en",
+        "body": [
+            "enum ${1:EnumName} {",
+            "\t${2:value1},",
+            "\t${3:value2}",
+            "}"
+        ],
+        "description": "Enum declaration"
+    },
+    "Abstract Class": {
+        "prefix": "ac",
+        "body": [
+            "abstract class ${1:ClassName} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Abstract class"
+    },
+    "Interface (Abstract Class/Mixins)": {
+        "prefix": "int",
+        "body": [
+            "abstract class I${1:InterfaceName} {",
+            "\t${2:ReturnType} ${3:methodName}(${4:args});",
+            "}"
+        ],
+        "description": "Interface (using abstract class in Dart)"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "// ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " * ${1:comment}",
+            " */"
+        ],
+        "description": "Multi-line comment"
+    },
+    "Doc Comment (///)": {
+        "prefix": "doc",
+        "body": [
+            "/// ${1:Documentation for this code element.}",
+            "///",
+            "/// Example:",
+            "/// ```dart",
+            "/// var myVar = 10;",
+            "/// ```",
+            "///",
+            "/// See also: [${2:OtherClass}]",
+            "$0"
+        ],
+        "description": "Dart documentation comment"
+    },
+    "Import Statement": {
+        "prefix": "imp",
+        "body": [
+            "import '${1:package:path/to/file.dart}';"
+        ],
+        "description": "Import statement"
+    },
+    "Export Statement": {
+        "prefix": "exp",
+        "body": [
+            "export '${1:package:path/to/file.dart}';"
+        ],
+        "description": "Export statement"
+    }
+}
+
+
+

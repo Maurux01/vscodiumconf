@@ -1,0 +1,163 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if ${1:condition}:",
+            "\t$0"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if ${1:condition}:",
+            "\t${2: # code if true}",
+            "else:",
+            "\t$0"
+        ],
+        "description": "If-Else statement"
+    },
+    "Elif Statement": {
+        "prefix": "eif",
+        "body": [
+            "elif ${1:condition}:",
+            "\t$0"
+        ],
+        "description": "Elif statement"
+    },
+    "For Loop (Range)": {
+        "prefix": "for",
+        "body": [
+            "for ${1:i} in range(${2:start}, ${3:end}):",
+            "\t$0"
+        ],
+        "description": "For loop using range"
+    },
+    "For Loop (Iterate List)": {
+        "prefix": "fore",
+        "body": [
+            "for ${1:item} in ${2:iterable}:",
+            "\t$0"
+        ],
+        "description": "For loop iterating over a list/iterable"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while ${1:condition}:",
+            "\t$0"
+        ],
+        "description": "While loop"
+    },
+    "Function Definition": {
+        "prefix": "fn",
+        "body": [
+            "def ${1:function_name}(${2:args}):",
+            "\t$0"
+        ],
+        "description": "Function definition"
+    },
+    "Class Definition": {
+        "prefix": "cl",
+        "body": [
+            "class ${1:ClassName}:",
+            "\tdef __init__(self, ${2:args}):",
+            "\t\t${3:self.attribute = value}",
+            "\t\t$0"
+        ],
+        "description": "Class definition with constructor"
+    },
+    "Constructor (__init__)": {
+        "prefix": "co",
+        "body": [
+            "def __init__(self, ${1:args}):",
+            "\t${2:self.attribute = value}",
+            "\t$0"
+        ],
+        "description": "Class constructor (__init__)"
+    },
+    "Method Definition": {
+        "prefix": "meth",
+        "body": [
+            "def ${1:method_name}(self, ${2:args}):",
+            "\t$0"
+        ],
+        "description": "Class method definition"
+    },
+    "Try-Except Block": {
+        "prefix": "tc",
+        "body": [
+            "try:",
+            "\t${1: # code to try}",
+            "except ${2:ExceptionType} as e:",
+            "\t${3: # code to handle exception}",
+            "\tprint(e)",
+            "finally:",
+            "\t$0"
+        ],
+        "description": "Try-Except-Finally block"
+    },
+    "Print Statement": {
+        "prefix": "p",
+        "body": [
+            "print(\"${1:message}\")"
+        ],
+        "description": "Print statement"
+    },
+    "Variable Assignment": {
+        "prefix": "v",
+        "body": [
+            "${1:variable_name} = ${2:value}"
+        ],
+        "description": "Variable assignment"
+    },
+    "Docstring (Function/Method)": {
+        "prefix": "docfn",
+        "body": [
+            "\"\"\"",
+            "    ${1:Description of the function/method.}",
+            "",
+            "    :param ${2:param_name}: ${3:Description of param_name.}",
+            "    :type ${2:param_name}: ${4:str}",
+            "    :returns: ${5:Description of the return value.}",
+            "    :rtype: ${6:bool}",
+            "\"\"\"",
+            "$0"
+        ],
+        "description": "Python docstring for functions/methods"
+    },
+    "Docstring (Class)": {
+        "prefix": "doccl",
+        "body": [
+            "\"\"\"",
+            "    ${1:Description of the class.}",
+            "",
+            "    :param ${2:param_name}: ${3:Description of param_name.}",
+            "    :type ${2:param_name}: ${4:str}",
+            "\"\"\"",
+            "$0"
+        ],
+        "description": "Python docstring for classes"
+    },
+    "Import Module": {
+        "prefix": "imp",
+        "body": [
+            "import ${1:module_name}"
+        ],
+        "description": "Import module"
+    },
+    "From Import": {
+        "prefix": "fimp",
+        "body": [
+            "from ${1:module_name} import ${2:item}"
+        ],
+        "description": "From ... import statement"
+    },
+    "Single Line Comment": {
+        "prefix": "c",  
+        "body": [
+            "# ${1:comment}"
+        ],
+        "description": "Single line comment"
+    }
+}

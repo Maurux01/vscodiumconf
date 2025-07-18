@@ -1,0 +1,271 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2: // code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "else if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Else If statement"
+    },
+    "When (Switch) Statement": {
+        "prefix": "wh",
+        "body": [
+            "when (${1:expression}) {",
+            "\t${2:value1} -> $3",
+            "\t${4:value2} -> $5",
+            "\telse -> $0",
+            "}"
+        ],
+        "description": "When statement (Kotlin's switch)"
+    },
+    "For Loop (Range)": {
+        "prefix": "for",
+        "body": [
+            "for (${1:i} in ${2:start}..${3:end}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop using range"
+    },
+    "For Loop (Collection)": {
+        "prefix": "fore",
+        "body": [
+            "for (${1:item} in ${2:collection}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop iterating over a collection"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Do While Loop": {
+        "prefix": "dw",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while (${1:condition})"
+        ],
+        "description": "Do-While loop"
+    },
+    "Function Declaration": {
+        "prefix": "fn",
+        "body": [
+            "fun ${1:functionName}(${2:args}): ${3:ReturnType} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function declaration"
+    },
+    "Class Definition": {
+        "prefix": "cl",
+        "body": [
+            "class ${1:ClassName} {",
+            "\t${2: // class members}",
+            "\t$0",
+            "}"
+        ],
+        "description": "Class definition"
+    },
+    "Data Class Definition": {
+        "prefix": "dcl",
+        "body": [
+            "data class ${1:DataClassName}(val ${2:prop1}: ${3:Type1}, val ${4:prop2}: ${5:Type2})"
+        ],
+        "description": "Data class definition"
+    },
+    "Constructor (Primary)": {
+        "prefix": "co",
+        "body": [
+            "class ${1:ClassName}(${2:val param1: Type1, var param2: Type2}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Primary constructor"
+    },
+    "Constructor (Secondary)": {
+        "prefix": "sco",
+        "body": [
+            "constructor(${1:args}) : this(${2:superArgs}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Secondary constructor"
+    },
+    "Try-Catch Block": {
+        "prefix": "tc",
+        "body": [
+            "try {",
+            "\t${1: // code to try}",
+            "} catch (e: ${2:ExceptionType}) {",
+            "\t${3: // code to handle exception}",
+            "\tprintln(e)",
+            "} finally {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Try-Catch block"
+    },
+    "Print (println)": {
+        "prefix": "p",
+        "body": [
+            "println(\"${1:message}\")"
+        ],
+        "description": "Print statement (println)"
+    },
+    "Log (Android Log.d)": {
+        "prefix": "log",
+        "body": [
+            "import android.util.Log",
+            "Log.d(\"${1:TAG}\", \"${2:message}\")"
+        ],
+        "description": "Android Log.d"
+    },
+    "Coroutine (launch)": {
+        "prefix": "cl",
+        "body": [
+            "import kotlinx.coroutines.*",
+            "GlobalScope.launch {",
+            "\t${1: // Coroutine code}",
+            "\t$0",
+            "}"
+        ],
+        "description": "Coroutine launch"
+    },
+    "Async Coroutine": {
+        "prefix": "ca",
+        "body": [
+            "import kotlinx.coroutines.*",
+            "val ${1:result} = GlobalScope.async {",
+            "\t${2: // Async code}",
+            "}.await()"
+        ],
+        "description": "Async Coroutine with await"
+    },
+    "Variable (var)": {
+        "prefix": "v",
+        "body": [
+            "var ${1:variableName}: ${2:Type} = ${3:value}"
+        ],
+        "description": "Mutable variable (var)"
+    },
+    "Value (val)": {
+        "prefix": "vl",
+        "body": [
+            "val ${1:variableName}: ${2:Type} = ${3:value}"
+        ],
+        "description": "Immutable value (val)"
+    },
+    "Enum Class": {
+        "prefix": "en",
+        "body": [
+            "enum class ${1:EnumName} {",
+            "\t${2:VALUE1},",
+            "\t${3:VALUE2}",
+            "}"
+        ],
+        "description": "Enum class"
+    },
+    "Interface": {
+        "prefix": "int",
+        "body": [
+            "interface ${1:InterfaceName} {",
+            "\tfun ${2:methodName}(${3:args}): ${4:ReturnType}",
+            "}"
+        ],
+        "description": "Interface definition"
+    },
+    "Object (Singleton)": {
+        "prefix": "obj",
+        "body": [
+            "object ${1:ObjectName} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Object declaration (Singleton)"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "// ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " * ${1:comment}",
+            " */"
+        ],
+        "description": "Multi-line comment"
+    },
+    "KDoc (Documentation)": {
+        "prefix": "kdoc",
+        "body": [
+            "/**",
+            " * ${1:Short description.}",
+            " *",
+            " * @param ${2:paramName} ${3:description of parameter}",
+            " * @return ${4:description of return value}",
+            " * @see ${5:RelatedClass}",
+            " */",
+            "$0"
+        ],
+        "description": "KDoc documentation comment"
+    },
+    "Import Statement": {
+        "prefix": "imp",
+        "body": [
+            "import ${1:packageName}.${2:ClassName}"
+        ],
+        "description": "Import statement"
+    }
+}
+{
+    "Lambda Expression": {
+        "prefix": "lam",
+        "body": [
+            "${1:val lambdaName} = { ${2:arg1: Type1, arg2: Type2} ->",
+            "\t$0",
+            "}"
+        ],
+        "description": "Lambda expression"
+    },
+    "Extension Function": {
+        "prefix": "ext",
+        "body": [
+            "fun ${1:Type}.${2:functionName}(${3:args}): ${4:ReturnType} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Extension function"
+    }
+} 
