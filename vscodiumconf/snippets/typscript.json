@@ -1,0 +1,309 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2: // code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "else if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Else If statement"
+    },
+    "Switch Statement": {
+        "prefix": "sw",
+        "body": [
+            "switch (${1:expression}) {",
+            "\tcase ${2:value1}:",
+            "\t\t$3",
+            "\t\tbreak;",
+            "\tcase ${4:value2}:",
+            "\t\t$5",
+            "\t\tbreak;",
+            "\tdefault:",
+            "\t\t$0",
+            "}"
+        ],
+        "description": "Switch statement"
+    },
+    "For Loop (i)": {
+        "prefix": "for",
+        "body": [
+            "for (let ${1:i} = 0; ${1:i} < ${2:array}.length; ${1:i}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop with index"
+    },
+    "For Of Loop": {
+        "prefix": "forof",
+        "body": [
+            "for (const ${1:item} of ${2:iterable}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For...of loop"
+    },
+    "For In Loop (Objects)": {
+        "prefix": "forin",
+        "body": [
+            "for (const ${1:key} in ${2:object}) {",
+            "\tif (Object.hasOwnProperty.call(${2:object}, ${1:key})) {",
+            "\t\tconst ${3:element} = ${2:object}[${1:key}];",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "For...in loop (for objects)"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Do While Loop": {
+        "prefix": "dw",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while (${1:condition});"
+        ],
+        "description": "Do-While loop"
+    },
+    "Function Declaration": {
+        "prefix": "fn",
+        "body": [
+            "function ${1:functionName}(${2:args}): ${3:ReturnType} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function declaration"
+    },
+    "Arrow Function": {
+        "prefix": "fa",
+        "body": [
+            "const ${1:functionName} = (${2:args}): ${3:ReturnType} => {",
+            "\t$0",
+            "};"
+        ],
+        "description": "Arrow function"
+    },
+    "Class Definition": {
+        "prefix": "cl",
+        "body": [
+            "class ${1:ClassName} {",
+            "\tconstructor(${2:args}) {",
+            "\t\t$0",
+            "\t}",
+            "\t${3:methodName}(): ${4:ReturnType} {",
+            "\t\t",
+            "\t}",
+            "}"
+        ],
+        "description": "Class definition"
+    },
+    "Constructor": {
+        "prefix": "co",
+        "body": [
+            "constructor(${1:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Class constructor"
+    },
+    "Try-Catch Block": {
+        "prefix": "tc",
+        "body": [
+            "try {",
+            "\t${1: // code to try}",
+            "} catch (error: unknown) {",
+            "\t${2: // code to handle error}",
+            "\tconsole.error(error);",
+            "} finally {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Try-Catch block"
+    },
+    "Console Log": {
+        "prefix": "p",
+        "body": [
+            "console.log(${1:message});"
+        ],
+        "description": "Console log statement"
+    },
+    "Console Error": {
+        "prefix": "ce",
+        "body": [
+            "console.error(${1:message});"
+        ],
+        "description": "Console error statement"
+    },
+    "Console Warn": {
+        "prefix": "cw",
+        "body": [
+            "console.warn(${1:message});"
+        ],
+        "description": "Console warn statement"
+    },
+    "Async Function": {
+        "prefix": "afn",
+        "body": [
+            "async function ${1:functionName}(${2:args}): Promise<${3:ReturnType}> {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Async function"
+    },
+    "Await Keyword": {
+        "prefix": "aw",
+        "body": [
+            "await ${1:promise};"
+        ],
+        "description": "Await keyword"
+    },
+    "Promise": {
+        "prefix": "prom",
+        "body": [
+            "new Promise<${1:ResolveType}>((resolve, reject) => {",
+            "\t${2: // async operation}",
+            "\tif (${3:successCondition}) {",
+            "\t\tresolve(${4:value});",
+            "\t} else {",
+            "\t\treject(${5:error});",
+            "\t}",
+            "});"
+        ],
+        "description": "New Promise"
+    },
+    "Promise (then/catch)": {
+        "prefix": "ptc",
+        "body": [
+            "${1:promise}.then((${2:result}) => {",
+            "\t$0",
+            "}).catch((${3:error}) => {",
+            "\tconsole.error(${3:error});",
+            "});"
+        ],
+        "description": "Promise with then/catch"
+    },
+    "Variable (let)": {
+        "prefix": "v",
+        "body": [
+            "let ${1:variableName}: ${2:Type} = ${3:value};"
+        ],
+        "description": "Mutable variable (let) with type"
+    },
+    "Constant (const)": {
+        "prefix": "cst",
+        "body": [
+            "const ${1:CONSTANT_NAME}: ${2:Type} = ${3:value};"
+        ],
+        "description": "Constant (const) with type"
+    },
+    "Interface Declaration": {
+        "prefix": "int",
+        "body": [
+            "interface ${1:InterfaceName} {",
+            "\t${2:propertyName}: ${3:Type};",
+            "\t${4:methodName}(): ${5:ReturnType};",
+            "}"
+        ],
+        "description": "Interface declaration"
+    },
+    "Type Alias": {
+        "prefix": "ty",
+        "body": [
+            "type ${1:TypeName} = ${2:TypeDefinition};"
+        ],
+        "description": "Type alias"
+    },
+    "Enum Declaration": {
+        "prefix": "en",
+        "body": [
+            "enum ${1:EnumName} {",
+            "\t${2:Value1} = ${3:0},",
+            "\t${4:Value2} = ${5:1}",
+            "}"
+        ],
+        "description": "Enum declaration"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "// ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " * ${1:comment}",
+            " */"
+        ],
+        "description": "Multi-line comment"
+    },
+    "TSDoc": {
+        "prefix": "tsdoc",
+        "body": [
+            "/**",
+            " * ${1:Description of the function.}",
+            " * @param {${2:type}} ${3:paramName} ${4:Description of paramName.}",
+            " * @returns {${5:type}} ${6:Description of the return value.}",
+            " */",
+            "$0"
+        ],
+        "description": "TSDoc for function/method"
+    },
+    "Export Default": {
+        "prefix": "ed",
+        "body": [
+            "export default ${1:exportable};"
+        ],
+        "description": "Export default"
+    },
+    "Export Named": {
+        "prefix": "exp",
+        "body": [
+            "export const ${1:name}: ${2:Type} = ${3:value};"
+        ],
+        "description": "Export named"
+    },
+    "Import Default": {
+        "prefix": "im",
+        "body": [
+            "import ${1:moduleName} from '${2:./path/to/module}';"
+        ],
+        "description": "Import default"
+    },
+    "Import Named": {
+        "prefix": "imn",
+        "body": [
+            "import { ${1:name} } from '${2:./path/to/module}';"
+        ],
+        "description": "Import named"
+    }
+}

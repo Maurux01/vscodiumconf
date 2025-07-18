@@ -1,0 +1,219 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if ${1:condition} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if ${1:condition} {",
+            "\t${2: // code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "else if ${1:condition} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Else If statement"
+    },
+    "Switch Statement": {
+        "prefix": "sw",
+        "body": [
+            "switch ${1:expression} {",
+            "\tcase ${2:value1}:",
+            "\t\t$3",
+            "\tcase ${4:value2}:",
+            "\t\t$5",
+            "\tdefault:",
+            "\t\t$0",
+            "}"
+        ],
+        "description": "Switch statement"
+    },
+    "For Loop (C-style)": {
+        "prefix": "for",
+        "body": [
+            "for ${1:i} := 0; ${1:i} < ${2:length}; ${1:i}++ {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop (C-style)"
+    },
+    "For Loop (Range)": {
+        "prefix": "fore",
+        "body": [
+            "for ${1:index}, ${2:value} := range ${3:collection} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop iterating over a range"
+    },
+    "Infinite Loop": {
+        "prefix": "inf",
+        "body": [
+            "for {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Infinite loop"
+    },
+    "Function Declaration": {
+        "prefix": "fn",
+        "body": [
+            "func ${1:functionName}(${2:args}) ${3:ReturnType} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function declaration"
+    },
+    "Method Declaration": {
+        "prefix": "meth",
+        "body": [
+            "func (${1:receiver} ${2:ReceiverType}) ${3:methodName}(${4:args}) ${5:ReturnType} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Method declaration"
+    },
+    "Struct Definition": {
+        "prefix": "st",
+        "body": [
+            "type ${1:StructName} struct {",
+            "\t${2:FieldName1} ${3:Type1}",
+            "\t${4:FieldName2} ${5:Type2}",
+            "}"
+        ],
+        "description": "Struct definition"
+    },
+    "Interface Definition": {
+        "prefix": "int",
+        "body": [
+            "type ${1:InterfaceName} interface {",
+            "\t${2:MethodName1}(${3:args}) ${4:ReturnType}",
+            "\t${5:MethodName2}(${6:args})",
+            "}"
+        ],
+        "description": "Interface definition"
+    },
+    "Error Handling (if err != nil)": {
+        "prefix": "err",
+        "body": [
+            "if err != nil {",
+            "\treturn ${1:defaultValue}, err",
+            "}"
+        ],
+        "description": "Standard error handling"
+    },
+    "Print (fmt.Println)": {
+        "prefix": "p",
+        "body": [
+            "fmt.Println(\"${1:message}\")"
+        ],
+        "description": "Print statement (fmt.Println)"
+    },
+    "Log (log.Println)": {
+        "prefix": "log",
+        "body": [
+            "log.Println(\"${1:message}\")"
+        ],
+        "description": "Log statement (log.Println)"
+    },
+    "Goroutine": {
+        "prefix": "go",
+        "body": [
+            "go ${1:functionCall}(${2:args})"
+        ],
+        "description": "Goroutine"
+    },
+    "Channel Declaration": {
+        "prefix": "ch",
+        "body": [
+            "${1:channelName} := make(chan ${2:Type})"
+        ],
+        "description": "Channel declaration"
+    },
+    "Variable Declaration (var)": {
+        "prefix": "v",
+        "body": [
+            "var ${1:variableName} ${2:Type}"
+        ],
+        "description": "Variable declaration with var"
+    },
+    "Short Variable Declaration (:=)": {
+        "prefix": "vs",
+        "body": [
+            "${1:variableName} := ${2:value}"
+        ],
+        "description": "Short variable declaration (:=)"
+    },
+    "Constant Declaration (const)": {
+        "prefix": "cst",
+        "body": [
+            "const ${1:CONSTANT_NAME} = ${2:value}"
+        ],
+        "description": "Constant declaration"
+    },
+    "Iota Enum": {
+        "prefix": "iota",
+        "body": [
+            "const (",
+            "\t${1:A} = iota",
+            "\t${2:B}",
+            "\t${3:C}",
+            ")"
+        ],
+        "description": "Iota enum"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "// ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " * ${1:comment}",
+            " */"
+        ],
+        "description": "Multi-line comment"
+    },
+    "Package Declaration": {
+        "prefix": "pkg",
+        "body": [
+            "package ${1:main}"
+        ],
+        "description": "Package declaration"
+    },
+    "Import Package": {
+        "prefix": "imp",
+        "body": [
+            "import \"${1:fmt}\""
+        ],
+        "description": "Import package"
+    },
+    "Multiple Imports": {
+        "prefix": "imps",
+        "body": [
+            "import (",
+            "\t\"${1:fmt}\"",
+            "\t\"${2:net/http}\"",
+            ")"
+        ],
+        "description": "Multiple imports"
+    }
+}

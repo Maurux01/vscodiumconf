@@ -115,10 +115,7 @@
             "$0"
         ],
         "description": "Shebang for bash scripts"
-    }
-}
-{
-    "Exit Script": {
+    }, "Exit Script": {
         "prefix": "exit",
         "body": [
             "exit ${1:0}"

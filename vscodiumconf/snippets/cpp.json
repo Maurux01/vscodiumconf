@@ -1,0 +1,235 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2: // code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "else if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Else If statement"
+    },
+    "Switch Statement": {
+        "prefix": "sw",
+        "body": [
+            "switch (${1:expression}) {",
+            "\tcase ${2:value1}:",
+            "\t\t$3",
+            "\t\tbreak;",
+            "\tcase ${4:value2}:",
+            "\t\t$5",
+            "\t\tbreak;",
+            "\tdefault:",
+            "\t\t$0",
+            "}"
+        ],
+        "description": "Switch statement"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (int ${1:i} = 0; ${1:i} < ${2:length}; ${1:i}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop"
+    },
+    "Range-based For Loop": {
+        "prefix": "fore",
+        "body": [
+            "for (${1:auto&} ${2:element} : ${3:collection}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Range-based for loop (C++11+)"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Do While Loop": {
+        "prefix": "dw",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while (${1:condition});"
+        ],
+        "description": "Do-While loop"
+    },
+    "Function Definition": {
+        "prefix": "fn",
+        "body": [
+            "${1:ReturnType} ${2:functionName}(${3:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function definition"
+    },
+    "Class Definition": {
+        "prefix": "cl",
+        "body": [
+            "class ${1:ClassName} {",
+            "public:",
+            "\t${1:ClassName}(${2:args}) {",
+            "\t\t$0",
+            "\t}",
+            "\t~${1:ClassName}() {",
+            "\t\t// Destructor",
+            "\t}",
+            "};"
+        ],
+        "description": "Class definition"
+    },
+    "Constructor": {
+        "prefix": "co",
+        "body": [
+            "${1:ClassName}(${2:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Constructor"
+    },
+    "Destructor": {
+        "prefix": "des",
+        "body": [
+            "~${1:ClassName}() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Destructor"
+    },
+    "Try-Catch Block": {
+        "prefix": "tc",
+        "body": [
+            "try {",
+            "\t${1: // code to try}",
+            "} catch (const ${2:std::exception}& e) {",
+            "\t${3: // code to handle exception}",
+            "\tstd::cerr << e.what() << std::endl;",
+            "} catch (...) {",
+            "\tstd::cerr << \"Unknown error\" << std::endl;",
+            "} finally {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Try-Catch block"
+    },
+    "Print (cout)": {
+        "prefix": "p",
+        "body": [
+            "std::cout << \"${1:message}\" << std::endl;"
+        ],
+        "description": "Print statement (cout)"
+    },
+    "Variable Declaration": {
+        "prefix": "v",
+        "body": [
+            "${1:DataType} ${2:variableName} = ${3:value};"
+        ],
+        "description": "Variable declaration"
+    },
+    "Constant Declaration": {
+        "prefix": "cst",
+        "body": [
+            "const ${1:DataType} ${2:CONSTANT_NAME} = ${3:value};"
+        ],
+        "description": "Constant declaration"
+    },
+    "Struct Definition": {
+        "prefix": "st",
+        "body": [
+            "struct ${1:StructName} {",
+            "\t${2:Type} ${3:propertyName};",
+            "};"
+        ],
+        "description": "Struct definition"
+    },
+    "Enum Class": {
+        "prefix": "en",
+        "body": [
+            "enum class ${1:EnumName} {",
+            "\t${2:Value1},",
+            "\t${3:Value2}",
+            "};"
+        ],
+        "description": "Enum class (scoped enum)"
+    },
+    "Abstract Class (Interface concept)": {
+        "prefix": "int",
+        "body": [
+            "class I${1:InterfaceName} {",
+            "public:",
+            "\tvirtual ${2:ReturnType} ${3:methodName}(${4:args}) = 0;",
+            "\tvirtual ~I${1:InterfaceName}() = default;",
+            "};"
+        ],
+        "description": "Abstract class (C++ interface concept)"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "// ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " * ${1:comment}",
+            " */"
+        ],
+        "description": "Multi-line comment"
+    },
+    "Doxygen Comment (Function)": {
+        "prefix": "doxfn",
+        "body": [
+            "/**",
+            " * @brief ${1:Brief description of the function.}",
+            " * @param ${2:paramName} ${3:Description of paramName.}",
+            " * @return ${4:Description of return value.}",
+            " * @details ${5:Detailed description.}"
+            " */",
+            "$0"
+        ],
+        "description": "Doxygen comment for function"
+    },
+    "Include Header": {
+        "prefix": "imp",
+        "body": [
+            "#include <${1:header_name}>"
+        ],
+        "description": "Include standard header"
+    },
+    "Include Local Header": {
+        "prefix": "impl",
+        "body": [
+            "#include \"${1:local_header.h}\""
+        ],
+        "description": "Include local header"
+    }
+}

@@ -1,0 +1,293 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2: // code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "elseif (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Else If statement"
+    },
+    "Switch Statement": {
+        "prefix": "sw",
+        "body": [
+            "switch (${1:expression}) {",
+            "\tcase ${2:value1}:",
+            "\t\t$3",
+            "\t\tbreak;",
+            "\tcase ${4:value2}:",
+            "\t\t$5",
+            "\t\tbreak;",
+            "\tdefault:",
+            "\t\t$0",
+            "}"
+        ],
+        "description": "Switch statement"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (${1:$i} = 0; ${1:$i} < ${2:count}; ${1:$i}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop"
+    },
+    "Foreach Loop": {
+        "prefix": "fore",
+        "body": [
+            "foreach (${1:$array} as ${2:$key} => ${3:$value}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Foreach loop"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Do While Loop": {
+        "prefix": "dw",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while (${1:condition});"
+        ],
+        "description": "Do-While loop"
+    },
+    "Function Declaration": {
+        "prefix": "fn",
+        "body": [
+            "function ${1:functionName}(${2:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Function declaration"
+    },
+    "Class Definition": {
+        "prefix": "cl",
+        "body": [
+            "class ${1:ClassName} {",
+            "\tpublic function __construct(${2:args}) {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Class definition"
+    },
+    "Constructor (__construct)": {
+        "prefix": "co",
+        "body": [
+            "public function __construct(${1:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Constructor"
+    },
+    "Method Declaration (Public)": {
+        "prefix": "meth",
+        "body": [
+            "public function ${1:methodName}(${2:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Public method declaration"
+    },
+    "Try-Catch Block": {
+        "prefix": "tc",
+        "body": [
+            "try {",
+            "\t${1: // code to try}",
+            "} catch (${2:ExceptionType} ${3:$e}) {",
+            "\t${4: // code to handle exception}",
+            "\techo ${3:$e}->getMessage();",
+            "} finally {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Try-Catch-Finally block"
+    },
+    "Print (echo)": {
+        "prefix": "p",
+        "body": [
+            "echo \"${1:message}\";"
+        ],
+        "description": "Print statement (echo)"
+    },
+    "Log (error_log)": {
+        "prefix": "log",
+        "body": [
+            "error_log(\"${1:message}\");"
+        ],
+        "description": "Error log statement"
+    },
+    "Variable Declaration": {
+        "prefix": "v",
+        "body": [
+            "${1:$variableName} = ${2:value};"
+        ],
+        "description": "Variable declaration"
+    },
+    "Constant Declaration (define)": {
+        "prefix": "cst",
+        "body": [
+            "define('${1:CONSTANT_NAME}', ${2:value});"
+        ],
+        "description": "Constant declaration (define)"
+    },
+    "Constant Declaration (const)": {
+        "prefix": "cstc",
+        "body": [
+            "const ${1:CONSTANT_NAME} = ${2:value};"
+        ],
+        "description": "Class constant declaration (const)"
+    },
+    "Interface Declaration": {
+        "prefix": "int",
+        "body": [
+            "interface ${1:InterfaceName} {",
+            "\tpublic function ${2:methodName}(${3:args});",
+            "}"
+        ],
+        "description": "Interface declaration"
+    },
+    "Trait Declaration": {
+        "prefix": "tr",
+        "body": [
+            "trait ${1:TraitName} {",
+            "\tpublic function ${2:methodName}(${3:args}) {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Trait declaration"
+    },
+    "Use Trait": {
+        "prefix": "ut",
+        "body": [
+            "use ${1:TraitName};"
+        ],
+        "description": "Use trait within a class"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "// ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " * ${1:comment}",
+            " */"
+        ],
+        "description": "Multi-line comment"
+    },
+    "PHPDoc": {
+        "prefix": "phpdoc",
+        "body": [
+            "/**",
+            " * ${1:Description of the function/method.}",
+            " *",
+            " * @param ${2:Type} ${3:$paramName} ${4:Description of paramName.}",
+            " * @return ${5:Type} ${6:Description of the return value.}",
+            " * @throws ${7:ExceptionClass} ${8:Description of thrown exception.}",
+            " */",
+            "$0"
+        ],
+        "description": "PHPDoc comment"
+    },
+    "Include (require_once)": {
+        "prefix": "req",
+        "body": [
+            "require_once '${1:path/to/file.php}';"
+        ],
+        "description": "Require once"
+    },
+    "Include (include_once)": {
+        "prefix": "inc",
+        "body": [
+            "include_once '${1:path/to/file.php}';"
+        ],
+        "description": "Include once"
+    },
+    "CRUD (Database - PDO)": {
+        "prefix": "crudpdo",
+        "body": [
+            "// --- INSERT ---",
+            "try {",
+            "\t$stmt = $pdo->prepare(\"INSERT INTO ${1:table_name} (${2:column1}, ${3:column2}) VALUES (:value1, :value2)\");",
+            "\t$stmt->bindParam(':value1', ${4:$value1});",
+            "\t$stmt->bindParam(':value2', ${5:$value2});",
+            "\t$stmt->execute();",
+            "\techo \"Record inserted successfully\";",
+            "} catch (PDOException $e) {",
+            "\techo \"Error: \" . $e->getMessage();",
+            "}",
+            "",
+            "// --- SELECT ---",
+            "try {",
+            "\t$stmt = $pdo->prepare(\"SELECT * FROM ${1:table_name} WHERE ${6:id} = :id\");",
+            "\t$stmt->bindParam(':id', ${7:$id});",
+            "\t$stmt->execute();",
+            "\t$result = $stmt->fetch(PDO::FETCH_ASSOC);",
+            "\tif ($result) {",
+            "\t\tprint_r($result);",
+            "\t} else {",
+            "\t\techo \"No record found\";",
+            "\t}",
+            "} catch (PDOException $e) {",
+            "\techo \"Error: \" . $e->getMessage();",
+            "}",
+            "",
+            "// --- UPDATE ---",
+            "try {",
+            "\t$stmt = $pdo->prepare(\"UPDATE ${1:table_name} SET ${2:column1} = :value1 WHERE ${6:id} = :id\");",
+            "\t$stmt->bindParam(':value1', ${4:$newValue});",
+            "\t$stmt->bindParam(':id', ${7:$id});",
+            "\t$stmt->execute();",
+            "\techo \"Record updated successfully\";",
+            "} catch (PDOException $e) {",
+            "\techo \"Error: \" . $e->getMessage();",
+            "}",
+            "",
+            "// --- DELETE ---",
+            "try {",
+            "\t$stmt = $pdo->prepare(\"DELETE FROM ${1:table_name} WHERE ${6:id} = :id\");",
+            "\t$stmt->bindParam(':id', ${7:$id});",
+            "\t$stmt->execute();",
+            "\techo \"Record deleted successfully\";",
+            "} catch (PDOException $e) {",
+            "\techo \"Error: \" . $e->getMessage();",
+            "}$0"
+        ],
+        "description": "CRUD operations using PDO"
+    }
+}

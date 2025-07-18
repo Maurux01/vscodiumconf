@@ -1,0 +1,125 @@
+{
+    "SELECT Statement": {
+        "prefix": "s",
+        "body": [
+            "SELECT ${1:column_name}(s)",
+            "FROM ${2:table_name}",
+            "WHERE ${3:condition};"
+        ],
+        "description": "SELECT statement"
+    },
+    "SELECT All": {
+        "prefix": "sa",
+        "body": [
+            "SELECT *",
+            "FROM ${1:table_name};"
+        ],
+        "description": "SELECT all columns"
+    },
+    "INSERT Statement": {
+        "prefix": "i",
+        "body": [
+            "INSERT INTO ${1:table_name} (${2:column1}, ${3:column2})",
+            "VALUES (${4:value1}, ${5:value2});"
+        ],
+        "description": "INSERT statement"
+    },
+    "UPDATE Statement": {
+        "prefix": "u",
+        "body": [
+            "UPDATE ${1:table_name}",
+            "SET ${2:column1} = ${3:value1}, ${4:column2} = ${5:value2}",
+            "WHERE ${6:condition};"
+        ],
+        "description": "UPDATE statement"
+    },
+    "DELETE Statement": {
+        "prefix": "d",
+        "body": [
+            "DELETE FROM ${1:table_name}",
+            "WHERE ${2:condition};"
+        ],
+        "description": "DELETE statement"
+    },
+    "CREATE TABLE": {
+        "prefix": "ct",
+        "body": [
+            "CREATE TABLE ${1:table_name} (",
+            "\t${2:id} INT PRIMARY KEY AUTO_INCREMENT,",
+            "\t${3:column_name} VARCHAR(255) NOT NULL,",
+            "\t${4:created_at} TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+            ");"
+        ],
+        "description": "CREATE TABLE statement"
+    },
+    "ALTER TABLE (ADD COLUMN)": {
+        "prefix": "atc",
+        "body": [
+            "ALTER TABLE ${1:table_name}",
+            "ADD COLUMN ${2:new_column_name} ${3:DATATYPE};"
+        ],
+        "description": "ALTER TABLE ADD COLUMN"
+    },
+    "DROP TABLE": {
+        "prefix": "dt",
+        "body": [
+            "DROP TABLE ${1:table_name};"
+        ],
+        "description": "DROP TABLE statement"
+    },
+    "JOIN (INNER)": {
+        "prefix": "ji",
+        "body": [
+            "SELECT ${1:t1.column}, ${2:t2.column}",
+            "FROM ${3:table1} t1",
+            "INNER JOIN ${4:table2} t2 ON t1.${5:column_id} = t2.${6:column_id};"
+        ],
+        "description": "INNER JOIN"
+    },
+    "JOIN (LEFT)": {
+        "prefix": "jl",
+        "body": [
+            "SELECT ${1:t1.column}, ${2:t2.column}",
+            "FROM ${3:table1} t1",
+            "LEFT JOIN ${4:table2} t2 ON t1.${5:column_id} = t2.${6:column_id};"
+        ],
+        "description": "LEFT JOIN"
+    },
+    "WHERE Clause": {
+        "prefix": "w",
+        "body": [
+            "WHERE ${1:condition}"
+        ],
+        "description": "WHERE clause"
+    },
+    "GROUP BY": {
+        "prefix": "gb",
+        "body": [
+            "GROUP BY ${1:column_name}(s)"
+        ],
+        "description": "GROUP BY clause"
+    },
+    "ORDER BY": {
+        "prefix": "ob",
+        "body": [
+            "ORDER BY ${1:column_name} ${2:ASC|DESC}"
+        ],
+        "description": "ORDER BY clause"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "-- ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " ${1:comment}",
+            "*/"
+        ],
+        "description": "Multi-line comment"
+    }
+}

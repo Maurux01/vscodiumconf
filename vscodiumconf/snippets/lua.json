@@ -1,0 +1,137 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if ${1:condition} then",
+            "\t$0",
+            "end"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if ${1:condition} then",
+            "\t${2:-- code if true}",
+            "else",
+            "\t$0",
+            "end"
+        ],
+        "description": "If-Else statement"
+    },
+    "Elseif Statement": {
+        "prefix": "eif",
+        "body": [
+            "elseif ${1:condition} then",
+            "\t$0"
+        ],
+        "description": "Elseif statement"
+    },
+    "For Loop (numeric)": {
+        "prefix": "for",
+        "body": [
+            "for ${1:i} = ${2:start}, ${3:end}, ${4:step} do",
+            "\t$0",
+            "end"
+        ],
+        "description": "Numeric for loop"
+    },
+    "For Loop (iterate table)": {
+        "prefix": "forp",
+        "body": [
+            "for ${1:key}, ${2:value} in pairs(${3:table}) do",
+            "\t$0",
+            "end"
+        ],
+        "description": "For loop to iterate over a table (pairs)"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while ${1:condition} do",
+            "\t$0",
+            "end"
+        ],
+        "description": "While loop"
+    },
+    "Repeat Until Loop": {
+        "prefix": "ru",
+        "body": [
+            "repeat",
+            "\t$0",
+            "until ${1:condition}"
+        ],
+        "description": "Repeat-until loop"
+    },
+    "Function Declaration": {
+        "prefix": "fn",
+        "body": [
+            "function ${1:functionName}(${2:args})",
+            "\t$0",
+            "end"
+        ],
+        "description": "Function declaration"
+    },
+    "Local Function Declaration": {
+        "prefix": "lfn",
+        "body": [
+            "local function ${1:functionName}(${2:args})",
+            "\t$0",
+            "end"
+        ],
+        "description": "Local function declaration"
+    },
+    "Table (Object) Definition": {
+        "prefix": "t",
+        "body": [
+            "local ${1:tableName} = {",
+            "\t${2:key} = ${3:value}",
+            "}"
+        ],
+        "description": "Table (object) definition"
+    },
+    "Local Variable": {
+        "prefix": "lv",
+        "body": [
+            "local ${1:variableName} = ${2:value}"
+        ],
+        "description": "Local variable declaration"
+    },
+    "Global Variable": {
+        "prefix": "gv",
+        "body": [
+            "${1:variableName} = ${2:value}"
+        ],
+        "description": "Global variable declaration"
+    },
+    "Print Statement": {
+        "prefix": "p",
+        "body": [
+            "print(${1:message})"
+        ],
+        "description": "Print statement"
+    },
+    "Comments (Single Line)": {
+        "prefix": "c",
+        "body": [
+            "-- ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Comments (Multi Line)": {
+        "prefix": "cm",
+        "body": [
+            "--[[",
+            "${1:comment}",
+            "--]]"
+        ],
+        "description": "Multi-line comment"
+    },
+    "Require Module": {
+        "prefix": "req",
+        "body": [
+            "local ${1:module} = require('${2:modulePath}')"
+        ],
+        "description": "Require module"
+    }
+}

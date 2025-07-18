@@ -1,0 +1,271 @@
+{
+    "If Statement": {
+        "prefix": "i",
+        "body": [
+            "if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ie",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2: // code if true}",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If-Else statement"
+    },
+    "Else If Statement": {
+        "prefix": "eif",
+        "body": [
+            "else if (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Else If statement"
+    },
+    "Switch Statement": {
+        "prefix": "sw",
+        "body": [
+            "switch (${1:expression}) {",
+            "\tcase ${2:value1}:",
+            "\t\t$3",
+            "\t\tbreak;",
+            "\tcase ${4:value2}:",
+            "\t\t$5",
+            "\t\tbreak;",
+            "\tdefault:",
+            "\t\t$0",
+            "}"
+        ],
+        "description": "Switch statement"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (int ${1:i} = 0; ${1:i} < ${2:length}; ${1:i}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "For loop"
+    },
+    "Foreach Loop": {
+        "prefix": "fore",
+        "body": [
+            "foreach (${1:var} ${2:item} in ${3:collection}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Foreach loop"
+    },
+    "While Loop": {
+        "prefix": "w",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Do While Loop": {
+        "prefix": "dw",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while (${1:condition});"
+        ],
+        "description": "Do-While loop"
+    },
+    "Method Declaration (Public)": {
+        "prefix": "fn",
+        "body": [
+            "public ${1:ReturnType} ${2:MethodName}(${3:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Public method declaration"
+    },
+    "Method Declaration (Private)": {
+        "prefix": "pfn",
+        "body": [
+            "private ${1:ReturnType} ${2:MethodName}(${3:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Private method declaration"
+    },
+    "Class Definition": {
+        "prefix": "cl",
+        "body": [
+            "public class ${1:ClassName} {",
+            "\tpublic ${1:ClassName}(${2:args}) {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Class definition"
+    },
+    "Constructor": {
+        "prefix": "co",
+        "body": [
+            "public ${1:ClassName}(${2:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Constructor"
+    },
+    "Try-Catch Block": {
+        "prefix": "tc",
+        "body": [
+            "try {",
+            "\t${1: // code to try}",
+            "} catch (${2:ExceptionType} ex) {",
+            "\t${3: // code to handle exception}",
+            "\tConsole.WriteLine(ex.Message);",
+            "} finally {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Try-Catch-Finally block"
+    },
+    "Console WriteLine (Print)": {
+        "prefix": "p",
+        "body": [
+            "Console.WriteLine(\"${1:message}\");"
+        ],
+        "description": "Console.WriteLine (Print)"
+    },
+    "Logger (e.g., Serilog)": {
+        "prefix": "log",
+        "body": [
+            "// private readonly ILogger<${1:ClassName}> _logger;",
+            "// public ${1:ClassName}(ILogger<${1:ClassName}> logger) { _logger = logger; }",
+            "_logger.LogInformation(\"${2:message}\");"
+        ],
+        "description": "Logger statement (conceptual, assumes logger setup)"
+    },
+    "Async Method": {
+        "prefix": "afn",
+        "body": [
+            "public async Task<${1:ReturnType}> ${2:MethodName}(${3:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Async method declaration"
+    },
+    "Await Keyword": {
+        "prefix": "aw",
+        "body": [
+            "await ${1:task};"
+        ],
+        "description": "Await keyword"
+    },
+    "Task (Future/Promise equivalent)": {
+        "prefix": "task",
+        "body": [
+            "Task.Run(() => {",
+            "\t${1: // async operation}",
+            "\treturn ${2:value};",
+            "});"
+        ],
+        "description": "Task creation"
+    },
+    "Variable Declaration (var)": {
+        "prefix": "v",
+        "body": [
+            "var ${1:variableName} = ${2:value};"
+        ],
+        "description": "Variable declaration with var"
+    },
+    "Variable Declaration (explicit type)": {
+        "prefix": "vt",
+        "body": [
+            "${1:DataType} ${2:variableName} = ${3:value};"
+        ],
+        "description": "Variable declaration with explicit type"
+    },
+    "Constant Declaration": {
+        "prefix": "cst",
+        "body": [
+            "const ${1:DataType} ${2:CONSTANT_NAME} = ${3:value};"
+        ],
+        "description": "Constant declaration"
+    },
+    "Struct Definition": {
+        "prefix": "st",
+        "body": [
+            "public struct ${1:StructName} {",
+            "\tpublic ${2:Type} ${3:Property};",
+            "}"
+        ],
+        "description": "Struct definition"
+    },
+    "Enum Declaration": {
+        "prefix": "en",
+        "body": [
+            "public enum ${1:EnumName} {",
+            "\t${2:Value1},",
+            "\t${3:Value2}",
+            "}"
+        ],
+        "description": "Enum declaration"
+    },
+    "Interface Declaration": {
+        "prefix": "int",
+        "body": [
+            "public interface I${1:InterfaceName} {",
+            "\t${2:ReturnType} ${3:MethodName}(${4:args});",
+            "}"
+        ],
+        "description": "Interface declaration"
+    },
+    "Single Line Comment": {
+        "prefix": "c",
+        "body": [
+            "// ${1:comment}"
+        ],
+        "description": "Single line comment"
+    },
+    "Multi Line Comment": {
+        "prefix": "cm",
+        "body": [
+            "/*",
+            " * ${1:comment}",
+            " */"
+        ],
+        "description": "Multi-line comment"
+    },
+    "XML Documentation": {
+        "prefix": "xmldoc",
+        "body": [
+            "/// <summary>",
+            "/// ${1:Description of the method/class.}",
+            "/// </summary>",
+            "/// <param name=\"${2:paramName}\">${3:Description of paramName.}</param>",
+            "/// <returns>${4:Description of return value.}</returns>",
+            "/// <exception cref=\"${5:ExceptionType}\">${6:Description of thrown exception.}</exception>",
+            "$0"
+        ],
+        "description": "XML Documentation comment"
+    },
+    "Using Statement": {
+        "prefix": "us",
+        "body": [
+            "using ${1:Namespace};"
+        ],
+        "description": "Using statement (import)"
+    },
+    "Namespace Declaration": {
+        "prefix": "ns",
+        "body": [
+            "namespace ${1:NamespaceName} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Namespace declaration"
+    }
+}
